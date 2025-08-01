@@ -52,7 +52,7 @@ pi.addEventListener("click", function () {
     ppi.style.display = "none";
     hideall();
     showall();
-});
+});//click to display or hide for all sites
 
 
 
@@ -85,8 +85,8 @@ p5.addEventListener("click", function () {
     h5.style.display = "block";
     pp5.style.display = "block";
 });
-hideall();
-showall();
+hideall(); //to hide the other pages
+showall(); //except index, the landing page probably
 
 
 const hamBtn = document.querySelector("#ham");
@@ -106,12 +106,12 @@ function toggleMenus() {
         menuItemsList.classList.add("menuShow");
     }
 }
-
+//entire hamburger menu page, changing the text of it accordingly to user input
 
 const Submit = document.querySelector("#Submit");
 Submit.addEventListener("click", CheckAns);
 const scorebox = document.querySelector("#scorebox");
-var q1, q2, score = 0;
+var q1, q2, q3, q4, q5, score = 0;
 function CheckAns() {
     score = 0;
     q1 = document.querySelector("input[name='q1']:checked").value;
@@ -135,6 +135,8 @@ function CheckAns() {
     if (q5 == "DE") score++;
     scorebox.innerHTML = "Score:" + score;
 }
+
+//to check which answer was picked and if it was correct, 1 point
 
 const cg = document.getElementsByClassName("cg");
 function GetRandom(min, max) {
@@ -165,10 +167,11 @@ var movegg = setInterval(Movecg, 1000);
 var movegg = setInterval(Movecgg, 1000);
 var movegg = setInterval(Movecggg, 1000);
 var movegg = setInterval(Movecgggg, 1000);
+//for the moving minigame mice, to teleport about
 
 const score2 = document.getElementById("score2");
 var score22 = 0;
-const audio = new Audio("/audio/audio1.mp3");
+const audio = new Audio("audio/audio1.mp3");
 
 
 cg[0].addEventListener("click", Catch);
@@ -176,7 +179,7 @@ function Catch() {
     audio.play();
     score22++;
     score2.innerHTML = score22;
-    
+
 }
 
 cg[1].addEventListener("click", Catch);
@@ -199,36 +202,67 @@ function Catch() {
     score2.innerHTML = score22;
     audio.play();
 }
+//score added for every click of the mice, plus a mouse sound effect
 
 cg[0].addEventListener("click", function () {
     cg[0].classList.toggle("newState");
     cg[0].classList.add("anim1");
-})
+});
 
 cg[1].addEventListener("click", function () {
     cg[1].classList.toggle("newState");
     cg[1].classList.add("anim1");
-})
+});
 
 cg[2].addEventListener("click", function () {
     cg[2].classList.toggle("newState");
     cg[2].classList.add("anim1");
-})
+});
 
 cg[3].addEventListener("click", function () {
     cg[3].classList.toggle("newState");
     cg[3].classList.add("anim1");
-})
+});
+//css to be removed and added accordiingly
 
 var tii = document.getElementById("tii");
 var sec = 30;
 setInterval(timer, 1000);
-    function timer()
-    {
-        tii.innerHTML = sec;
-        sec--;
-        if (sec == 0)
-        {
-            clearInterval(timer);
-        }
+function timer() {
+    tii.innerHTML = sec;
+    sec--;
+    if (sec == 0) {
+        clearInterval(timer);
     }
+}
+//timer, sort of works??
+
+const btnFS = document.querySelector("#btnFS");
+const btnWS = document.querySelector("#btnWS");
+btnFS.addEventListener("click", enterFullscreen);
+btnWS.addEventListener("click", exitFullscreen);
+//to either enter or leave full screen
+
+function enterFullscreen() {
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+        document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+        document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+        document.documentElement.msRequestFullscreen();
+    }
+}
+
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { // Firefox
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { // IE/Edge
+        document.msExitFullscreen();
+    }
+}

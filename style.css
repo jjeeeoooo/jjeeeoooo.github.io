@@ -12,6 +12,8 @@ nav{display:inline-block;
     position:fixed;
     top:0%;
     z-index:2;}
+    /* nav as such to always be on screen, below hides those 
+    pesky bullet points */
 
 nav ul li{list-style-type:none;
     display:inline;}
@@ -22,10 +24,12 @@ nav ul button{background-color: rgb(167, 193, 215);
 nav ul button:hover{background-color: rgb(110, 123, 190);
                     color:white;
                     rotate: 8deg;}
+                    /* for some style for buttons also cool looking */
 
 @font-face{font-family:'MDGroteskRegular';
         src:url('fonts/MDGroteskRegular.woff') format('woff');}
         div{font-family:'MDGroteskRegular';}
+        /* fonts taken from font folder, only one cuz i like the font */
 
 h1{text-align: center;
     font-family:'MDGroteskRegular', sans-serif;
@@ -38,8 +42,11 @@ h1{text-align: center;
     display: inline-block;
     height: 200px;
     width: 200px;}
+    /* to not repeat the image, to be sized appropriately */
 
 #bb{background-position: -200px 0;}
+/* positioned in a grid, so simply shift the positions of the background
+images, in all 4 ids, accordingly */
 #ww{background-position: -200px -200px;}
 #ee{background-position: 0 0;}
 #tt{background-position: 0 -200px;}
@@ -48,6 +55,7 @@ h1{text-align: center;
     margin:5px;
     background-color: rgb(131, 161, 187);
     transition: 0.5s;}
+    /* hamburger menu for mobile */
 
 #ham:hover{background-color: rgb(110, 123, 190);
             color:white;
@@ -67,6 +75,7 @@ section{text-align: center;
     justify-content: center;
     align-items: center;
     flex-wrap:wrap;}
+    /* for flex, though it didn't work as intended */
 
 fieldset{text-align: center;
         flex:100%;
@@ -82,15 +91,18 @@ fieldset{text-align: center;
     color:black;
     border: black solid 2px;
     position: relative;}
+    /* to form the minigame box */
 
 .cg.newState{background-color: aqua;}
+/* the state to be removed */
 
 @keyframes gg{
-    0%{rotate:0}
+    0%{rotate:0deg}
     25%{rotate:90deg}
     50%{rotate:180deg}
     100%{rotate:270deg}
 }
+/* the state to be added via js */
 
 .cg.anim1{animation: gg 7s;
         animation-iteration-count: infinite;}
@@ -108,6 +120,7 @@ footer a{position: relative;
 
 footer a:hover{background-color: black;
             color: white;}
+/* the footer and the text to shine */
 
 @media (max-width:800px)
 {
@@ -121,7 +134,11 @@ footer a:hover{background-color: black;
         height:600px;
         padding:20px;}
     fieldset{width:600px;}
+    #qrCodeImg{display:none;}
+    footer{background: lightgreen;}
+    footer::after{content:"(mobile)";}
 }
+/* first different display size */
 
 @media (max-width:468px)
 {
@@ -135,4 +152,8 @@ footer a:hover{background-color: black;
         height:600px;
         padding:20px;}
     fieldset{width:250px;}
+    #qrCodeImg{display:none;}
+    footer{background: lightgreen;}
+    footer::after{content:"(mobile)";}
 }
+/* second different display size */
